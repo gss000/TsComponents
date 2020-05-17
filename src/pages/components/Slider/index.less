@@ -1,0 +1,70 @@
+.ts-slider {
+  position: relative;
+  padding: 8px 4px;
+  height: 8px;
+  list-style: none;
+  touch-action: none;
+  box-sizing: border-box;
+  transition: all .3s;
+  cursor: pointer;
+
+  .slider-rail {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -2px;
+    width: 100%;
+    height: 4px;
+    font-size: 14px;
+    font-weight: normal;
+    color: rgba(0, 0, 0, .65);
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+
+  .slider-process {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -2px;
+    width: 0;
+    height: 4px;
+    background-color: #91d5ff;
+    border-radius: 10px;
+    z-index: 10;
+
+    &:hover {
+      background-color: #64c2fd;
+    }
+  }
+
+  .slider-point {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -7px;
+    width: 14px;
+    height: 14px;
+    background-color: #fff;
+    border: 2px solid #91d5ff;
+    border-radius: 50%;
+    box-sizing: border-box;
+    z-index: 99;
+  }
+
+  &:hover {
+    .slider-rail {
+      background-color: #0000001a;
+    }
+
+    .slider-process {
+      background-color: #64c2fd;
+    }
+    .slider-point {
+      border-color: #64c2fd;
+    }
+  }
+
+  
+
+}
