@@ -1,3 +1,33 @@
 @import '../../common/common.less';
 
-.PopWrap {}
+.PopWrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+
+  .mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    opacity: .2;
+    z-index: 999;
+  }
+
+  .main {
+    padding: 0.15rem;
+
+    .main-content {
+      padding: 0.15rem;
+      position: absolute;
+      width: 100%;
+      font-size: 0.15rem;
+      background-color: #fff;
+      border-radius: 15px;
+      z-index: 1000;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Slider, Switch, Rate, PopConfirm, Popover } from '../components';
+import { Button, Slider, Switch, Rate, Popover } from '../components';
 import './Hello.less';
 
 class Hello extends Component<object> {
@@ -44,7 +44,12 @@ class Hello extends Component<object> {
 				</section>
 
 				<section className="demo-wrap">
-					<h4>气泡卡片</h4>
+					<h4>弹框组件</h4>
+					<div style={{ display: 'flex' }}>
+						<Popover content={'文案文案文案文案'} visible>
+							查看
+						</Popover>
+					</div>
 				</section>
 			</div>
 		);
