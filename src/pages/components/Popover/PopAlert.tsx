@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import Portal from '../../common/utils/portal';
-import './Popover.less';
+import './PopAlert.less';
 
 export interface PopOverProps {
 	title?: string | number | React.ReactDOM; // 标题
@@ -15,7 +15,9 @@ interface State {}
 export default class PopOver extends Component<PopOverProps, State> {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			visible: false
+		};
 	}
 
 	defaultProps = {
@@ -23,6 +25,10 @@ export default class PopOver extends Component<PopOverProps, State> {
 	};
 
 	container: React.ReactNode;
+
+	componentDidMount() {}
+
+	componentWillReceiveProps(nextProps) {}
 
 	getContainer() {
 		const divNode = document.createElement('div');

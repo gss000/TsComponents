@@ -8,3 +8,7 @@ export function getElementStyle(ele, attr) {
 		return ele.currentStyle[attr];
 	}
 }
+
+/**
+ * 计算元素位置
+ */
