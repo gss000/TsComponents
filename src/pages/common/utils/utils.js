@@ -12,3 +12,4 @@ export function getElementStyle(ele, attr) {
 /**
  * 计算元素位置
  */
+export function getMiddlePosition() {}

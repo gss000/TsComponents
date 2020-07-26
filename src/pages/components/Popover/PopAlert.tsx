@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import Portal from '../../common/utils/portal';
+import { getMiddlePosition } from '../../common/utils/utils';
 import './PopAlert.less';
 
 export interface PopOverProps {
@@ -30,6 +31,7 @@ export default class PopOver extends Component<PopOverProps, State> {
 
 	componentWillReceiveProps(nextProps) {}
 
+	// 创建容器节点
 	getContainer() {
 		const divNode = document.createElement('div');
 		divNode.style.position = 'absolute';
