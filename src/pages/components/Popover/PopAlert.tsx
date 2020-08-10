@@ -11,12 +11,16 @@ export interface PopOverProps {
 	visible: boolean; // 是否显示浮层
 }
 
-interface State {}
+interface State {
+	visible: boolean;
+	popTop: number | string;
+}
 
 export default class PopOver extends Component<PopOverProps, State> {
 	constructor(props) {
 		super(props);
 		this.state = {
+			popTop: 0,
 			visible: false
 		};
 	}
@@ -26,8 +30,20 @@ export default class PopOver extends Component<PopOverProps, State> {
 	};
 
 	container: React.ReactNode;
+	popContent: React.ReactNode;
 
-	componentDidMount() {}
+	componentWillMount() {}
+
+	componentDidMount() {
+		console.log('=======', this.popContent);
+		if (this.popContent) {
+			const height = getMiddlePosition(this.popContent);
+			console.log('popContent height:', height);
+			this.setState({
+				popTop: `${getMiddlePosition()}px`
+			});
+		}
+	}
 
 	componentWillReceiveProps(nextProps) {}
 
@@ -45,13 +61,18 @@ export default class PopOver extends Component<PopOverProps, State> {
 	}
 
 	render() {
+		const { popTop } = this.state;
 		const { title, content, visible } = this.props;
+		const popWrapStyle = { top: popTop };
 		const container = (
-			<div className={classnames('PopWrap', { hide: !visible })}>
+			<div className={classnames('PopWrap', { hide: !visible })} style={popWrapStyle}>
 				<div className="mask"></div>
-				<div className="main">
-					{title && <div className="main-title">{title}</div>}
-					<div className="main-content">{content}</div>
+				<div className="popAlert">
+					<div className="popAlert-content" ref={node => (this.popContent = node)}>
+						{title && <div className="pop-title">{title}</div>}
+						<div className="pop-content">{content}</div>
+					</div>
+					<div className="pop-close">X</div>
 				</div>
 			</div>
 		);

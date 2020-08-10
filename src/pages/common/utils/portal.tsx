@@ -31,7 +31,7 @@ class Portal extends React.Component<any> {
 	}
 
 	render() {
-		console.log(this.container);
+		// console.log(this.container);
 
 		if (this.container) {
 			return ReactDOM.createPortal(this.props.children, this.container);

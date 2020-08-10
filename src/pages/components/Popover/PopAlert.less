@@ -1,39 +1,46 @@
 @import '../../common/common.less';
 
 .PopWrap {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
 
-  .mask {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: #000;
-    opacity: .2;
-    z-index: 999;
-  }
+	.mask {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background: #000;
+		opacity: .2;
+		z-index: 999;
+	}
 
-  .main {
-    // padding: 0.15rem;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
+	.popAlert {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		z-index: 10001;
 
-    .main-content {
-      padding: 0.15rem;
-      position: absolute;
-      // left: 2%;
-      // width: 96%;
-      font-size: 0.14rem;
-      background-color: #fff;
-      border-radius: 15px;
-      z-index: 1000;
-      box-sizing: border-box;
-    }
-  }
+		.popAlert-content {
+			margin: 0 auto;
+			padding: 0.1rem;
+			width: 96%;
+			font-size: 0.14rem;
+			background-color: #fff;
+			border-radius: 15px;
+			z-index: 1000;
+			box-sizing: border-box;
+		}
+
+		.pop-close {
+			margin-top: 0.2rem;
+			font-size: 0.14rem;
+			color: #fff;
+			cursor: pointer;
+		}
+
+	}
 }

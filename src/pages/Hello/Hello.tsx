@@ -46,7 +46,7 @@ class Hello extends Component<object> {
 				<section className="demo-wrap">
 					<h4>弹框组件</h4>
 					<div style={{ display: 'flex' }}>
-						<Popover content={'文案文案文案文案'} visible>
+						<Popover title={'说明'} content={'文案文案文案文案'} visible>
 							查看
 						</Popover>
 					</div>

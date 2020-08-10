@@ -12,4 +12,12 @@ export function getElementStyle(ele, attr) {
 /**
  * 计算元素位置
  */
-export function getMiddlePosition() {}
+export function getMiddlePosition(ele) {
+	if (ele) {
+		const height = getElementStyle(ele, 'height');
+		console.log('util:', height);
+		return 50;
+	}
+
+	return 0;
+}
