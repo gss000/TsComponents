@@ -32,10 +32,25 @@ export default class PopOver extends Component<PopOverProps, State> {
 	container: React.ReactNode;
 	popContent: React.ReactNode;
 
-	componentWillMount() {}
+	componentWillMount() {
+		// const { popTop } = this.state;
+		// const { title, content, visible } = this.props;
+		// const popWrapStyle = { top: popTop };
+		// this.container = (
+		// 	<div className={classnames('PopWrap', { hide: !visible })} style={popWrapStyle}>
+		// 		<div className="mask"></div>
+		// 		<div className="popAlert" ref={node => (this.popContent = node)}>
+		// 			<div className="popAlert-content">
+		// 				{title && <div className="pop-title">{title}</div>}
+		// 				<div className="pop-content">{content}</div>
+		// 			</div>
+		// 			<div className="pop-close">X</div>
+		// 		</div>
+		// 	</div>
+		// );
+	}
 
 	componentDidMount() {
-		console.log('=======', this.popContent);
 		if (this.popContent) {
 			const height = getMiddlePosition(this.popContent);
 			console.log('popContent height:', height);
@@ -45,7 +60,7 @@ export default class PopOver extends Component<PopOverProps, State> {
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {}
+	// componentWillReceiveProps(nextProps) {}
 
 	// 创建容器节点
 	getContainer() {
@@ -64,22 +79,23 @@ export default class PopOver extends Component<PopOverProps, State> {
 		const { popTop } = this.state;
 		const { title, content, visible } = this.props;
 		const popWrapStyle = { top: popTop };
-		const container = (
-			<div className={classnames('PopWrap', { hide: !visible })} style={popWrapStyle}>
-				<div className="mask"></div>
-				<div className="popAlert">
-					<div className="popAlert-content" ref={node => (this.popContent = node)}>
-						{title && <div className="pop-title">{title}</div>}
-						<div className="pop-content">{content}</div>
-					</div>
-					<div className="pop-close">X</div>
-				</div>
-			</div>
-		);
 
 		return [
 			this.props.children,
-			<Portal getContainer={this.getContainer}>{container}</Portal>
+			<Portal getContainer={this.getContainer}>
+				{
+					<div className={classnames('PopWrap', { hide: !visible })} style={popWrapStyle}>
+						<div className="mask"></div>
+						<div className="popAlert" ref={node => (this.popContent = node)}>
+							<div className="popAlert-content">
+								{title && <div className="pop-title">{title}</div>}
+								<div className="pop-content">{content}</div>
+							</div>
+							<div className="pop-close">X</div>
+						</div>
+					</div>
+				}
+			</Portal>
 		];
 	}
 }
